@@ -5,7 +5,7 @@
         <p> {{insert.description}} </p>
         <h5>Mise en Ligne le {{insert.createdDate | date : 'medium'}} </h5>
         <img [src]="insert.imageUrl" [alt]="insert.title">
-        <button (click)="onOpen()"><i class="fa-sharp fa-solid fa-heart" [ngClass]="{ 'like': insert.snaps }"></i></button>
+        <button (click)="onOpen(insert.id)"><i class="fa-sharp fa-solid fa-heart" [ngClass]="{ like: insert.snaps }"></i></button>
         <span>{{insert.snaps}}</span>
     </div>
 </div>

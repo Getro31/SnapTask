@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TaskModel } from '../model/to-do-list.model';
 import { TaskListService } from 'services/task-list.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-single-task',
@@ -11,27 +11,34 @@ import { Observable } from 'rxjs';
 })
 export class SingleTaskComponent {
 
-  insert!: TaskModel;
+  //insert!: TaskModel;
   insert$!: Observable<TaskModel>;
+  private view!: boolean;
+  
 
   constructor(private _taskService: TaskListService, private route: ActivatedRoute){}
   
-  view: boolean = false;
+  
 
   ngOnInit(){
+    this.view = false;
     //recuperation de l'id de chaque tache tache
     const taskId = +this.route.snapshot.params['id'];
     //affichage du tache correspondant a l'id 
     this.insert$ = this._taskService.getTaskById(taskId);
   }
 
-  onOpen() {
-  //   if(this.view === false){
-  //      this._taskService.liksByID(this.insert.id, this.insert.snaps);
-  //      this.view = true;
-  //   }else{
-  //     this._taskService.liksByID(this.insert.id, this.insert.snaps);
-  //     this.view = false;
-  //   }
+  onOpen(taskId: number) {
+    if(this.view === false){
+      this.insert$ = this._taskService.liksByID(taskId, 'snap').pipe(
+        tap(() => this._taskService.getTaskById(taskId))
+        );
+        this.view = true;
+    }else{
+      this.insert$ = this._taskService.liksByID(taskId, 'unsnap').pipe(
+        tap(() => this.insert$ = this._taskService.getTaskById(taskId))
+      );
+      this.view = false;
+    }
   }
 }

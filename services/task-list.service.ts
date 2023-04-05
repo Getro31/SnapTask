@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { TaskModel } from 'src/app/model/to-do-list.model';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class TaskListService {
 
   }
 
-  myTasks: TaskModel[] = [];
+  myTasks$!: Observable<TaskModel[]> ;
   //methode
   getAllTasks(): Observable<TaskModel[]>{
     return this.httpClient.get<TaskModel[]>('http://localhost:3000/facesnaps')
@@ -20,17 +20,26 @@ export class TaskListService {
   getTaskById(taskId: number): Observable<TaskModel> {
     return this.httpClient.get<TaskModel>(`http://localhost:3000/facesnaps/${taskId}`)
   }
-  liksByID(taskId: number, like: number): void{
-    // const task = this.getTaskById(taskId);
-    // like === 0 ? task.snaps++ : task.snaps--;
+  liksByID(taskId: number, like: 'snap' | 'unsnap'): Observable<TaskModel>{
+    return this.getTaskById(taskId).pipe(
+      map(task =>({
+        ...task,
+        snaps: task.snaps + (like === 'snap' ? 1 : -1)
+      })),
+      switchMap(updateSnapTask =>  this.httpClient.put<TaskModel>(`http://localhost:3000/facesnaps/${taskId}`,updateSnapTask))
+  )}
+  addSnapTask(formValue: {title: string, description: string, imageUrl: string, location?: string}): Observable<TaskModel>{
+    return this.getAllTasks().pipe(
+      map(task => [...task].sort((a: TaskModel, b: TaskModel) => a.id - b.id )),
+      map(sortedTask => sortedTask[sortedTask.length - 1]),
+      map(lastTask => ({
+        ...formValue,
+        snaps : 0,
+        createdDate: new Date(),
+        id: lastTask.id + 1
+      })),
+      switchMap(newSnapTask => this.httpClient.post<TaskModel>('http://localhost:3000/facesnaps',newSnapTask))
+    );
   }
-  addTaskById(formValue :{title :string, description: string, createdDate: Date, imageUrl:string }): void{ 
-    const task: TaskModel = {
-      ...formValue,
-      id: this.myTasks[this.myTasks.length - 1].id + 1,
-      snaps: 0,
-      location: 'Paris'
-    }
-    this.myTasks.push(task);
-  }
+  
 }

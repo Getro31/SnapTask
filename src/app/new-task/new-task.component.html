@@ -11,8 +11,12 @@
             </textarea>
         </div>
         <div class="form-group">
-            <label for="uploadAt">UploadAt</label>
-            <input id="uploadAt" type="date" formControlName="uploadAt">
+            <label for="imageUrl">imageUrl</label>
+            <input id="imageUrl" type="text" formControlName="imageUrl">
+        </div>
+        <div class="form-group">
+            <label for="location">location</label>
+            <input id="location" type="text" formControlName="location">
         </div>
         <div class="action-buttons">
             <button type="submit" (click)="onSubmit()" [disabled]="taskForm.invalid">Enregistrer</button>
@@ -23,5 +27,6 @@
     <h2>{{ task.title | uppercase }}</h2>
     <p>Mis en ligne {{ task.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
     <p>{{ task.description }}</p>
+    <img [src]="task.imageUrl" [alt]="task.title">
     <p> {{task.snaps}} </p>
 </div>

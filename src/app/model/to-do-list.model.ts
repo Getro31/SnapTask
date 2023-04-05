@@ -4,6 +4,6 @@ export class TaskModel{
   description!:string;
   imageUrl!: string;
   createdDate!:Date;
-  snaps!: number
+  snaps!: number;
   location?: string;
 }

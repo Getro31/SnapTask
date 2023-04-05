@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { TaskModel } from '../model/to-do-list.model';
 import { TaskListService } from 'services/task-list.service';
 import { Router } from '@angular/router';
@@ -24,9 +24,10 @@ export class NewTaskComponent implements OnInit{
   ngOnInit() {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.taskForm = this.formBuilder.group({
-      title: [null, Validators.required],
-      instruction: [null, Validators.required],
-      uploadAt: [null, Validators.required]
+      title: [null, [Validators.required]],
+      instruction: [null, [Validators.required]],
+      imageUrl: [null, [Validators.required ,Validators.pattern(this.urlRegex)]],
+      location: [null],
     },
     {
       // l'Observable emet lorsque l'utilisateur passe sur un champ ou a finit de remplir le champ en cour
@@ -37,15 +38,16 @@ export class NewTaskComponent implements OnInit{
     this.taskPreview$ = this.taskForm.valueChanges.pipe(
       map(value => ({
         ...value,
+        createdDate: new Date(),
         id: 0,
-        open: 0
+        snaps: 0
       }))
     );
   }
   onSubmit() {
-    this._taskService.addTaskById(this.taskForm.value);
-    //redirige le user vers la list des taches
-    this.router.navigateByUrl('/task')
+    this._taskService.addSnapTask(this.taskForm.value).pipe(
+      tap(() => this.router.navigateByUrl('/facesnaps'))
+    ).subscribe();
   }
 
 }
