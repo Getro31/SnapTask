@@ -10,22 +10,22 @@ import { Router } from '@angular/router';
 })
 export class ToDoListComponent{
 
-  @Input() insert!: TaskModel;
+  @Input() insert$!: TaskModel;
 
   constructor(private _taskService: TaskListService, private route: Router){}
   
   view: boolean = false;
 
   onOpen() {
-    if(this.view === false){
-       this._taskService.liksByID(this.insert.id, this.insert.snaps);
-       this.view = true;
-    }else{
-      this._taskService.liksByID(this.insert.id, this.insert.snaps);
-      this.view = false;
-    }
+    // if(this.view === false){
+    //    this._taskService.liksByID(this.insert.id, this.insert.snaps);
+    //    this.view = true;
+    // }else{
+    //   this._taskService.liksByID(this.insert.id, this.insert.snaps);
+    //   this.view = false;
+    // }
   }
   onView(){
-    this.route.navigateByUrl(`task/${this.insert.id}`)
+    this.route.navigateByUrl(`task/${this.insert$.id}`)
   }
 }

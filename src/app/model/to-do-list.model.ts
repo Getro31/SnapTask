@@ -3,7 +3,7 @@ export class TaskModel{
   title!:string;
   description!:string;
   imageUrl!: string;
-  uploadAt!:Date;
+  createdDate!:Date;
   snaps!: number
   location?: string;
 }

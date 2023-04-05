@@ -21,7 +21,7 @@
 </div>
 <div class="task-preview" *ngIf="taskPreview$ | async as task">
     <h2>{{ task.title | uppercase }}</h2>
-    <p>Mis en ligne {{ task.uploadAt | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <p>Mis en ligne {{ task.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
     <p>{{ task.description }}</p>
     <p> {{task.snaps}} </p>
 </div>
