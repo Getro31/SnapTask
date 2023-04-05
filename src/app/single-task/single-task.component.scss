@@ -25,14 +25,34 @@ button{
     color: darken($color: $secondcolor, $amount: 10);
 }
 .face-snap-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lighten($color: $fourthcolor, $amount: 5);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: darken($color: $thirdcolor, $amount: 10);
-    width: max-content;
-    margin: auto;
-    padding: 0 100px;
-}
-    
+    box-sizing: border-box;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px 30px;
+    box-shadow: lightgray 4px 4px 20px;
+    img {
+      width: 100%;
+    }
+    h2 {
+      margin-bottom: 0;
+    }
+    p {
+      font-weight: 300;
+      font-size: 16px;
+    }
+    button {
+      background-color: transparent;
+      box-sizing: border-box;
+      padding: 5px 10px;
+      border: none;
+      box-shadow: lightgray 3px 3px 7px;
+      margin-right: 20px;
+      outline: none;
+      font-size: 14px;
+      font-weight: 500;
+      &:active {
+        transform: translate(1px, 1px);
+        box-shadow: lightgray 0 0 5px;
+      }
+    }
+  } 
