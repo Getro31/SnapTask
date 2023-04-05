@@ -25,10 +25,10 @@ export class SingleTaskComponent {
 
   onOpen() {
     if(this.view === false){
-       this._taskService.liksByID(this.insert.id, this.insert.open);
+       this._taskService.liksByID(this.insert.id, this.insert.snaps);
        this.view = true;
     }else{
-      this._taskService.liksByID(this.insert.id, this.insert.open);
+      this._taskService.liksByID(this.insert.id, this.insert.snaps);
       this.view = false;
     }
   }

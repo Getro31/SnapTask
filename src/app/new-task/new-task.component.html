@@ -22,6 +22,6 @@
 <div class="task-preview" *ngIf="taskPreview$ | async as task">
     <h2>{{ task.title | uppercase }}</h2>
     <p>Mis en ligne {{ task.uploadAt | date: 'à HH:mm, le d MMMM yyyy' }}</p>
-    <p>{{ task.instruction }}</p>
-    <p> {{task.open}} </p>
+    <p>{{ task.description }}</p>
+    <p> {{task.snaps}} </p>
 </div>

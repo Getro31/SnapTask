@@ -1,7 +1,9 @@
 export class TaskModel{
   id!: number;
   title!:string;
-  instruction!:string;
+  description!:string;
+  imageUrl!: string;
   uploadAt!:Date;
-  open?: any;
+  snaps!: number
+  location?: string;
 }

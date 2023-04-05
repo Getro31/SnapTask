@@ -2,9 +2,9 @@
     <div class="content">
         <a routerLink="/task">Back</a>
         <h2>{{insert.title}}</h2>
-        <p> {{insert.instruction}} </p>
+        <p> {{insert.description}} </p>
         <h5>Mise en Ligne le {{insert.uploadAt | date : 'medium'}} </h5>
-        <button (click)="onOpen()"><i class="fa-sharp fa-solid fa-heart" [ngClass]="{ like: insert.open === 1}"></i></button>
-        <span>{{insert.open}}</span>
+        <button (click)="onOpen()"><i class="fa-sharp fa-solid fa-heart" [ngClass]="{ like: insert.snaps === 1}"></i></button>
+        <span>{{insert.snaps}}</span>
     </div>
 </div>

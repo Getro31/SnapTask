@@ -12,6 +12,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleTaskComponent } from './single-task/single-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NewTaskComponent } from './new-task/new-task.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ {provide: LOCALE_ID, useValue: 'fr-FR'} ],
   bootstrap: [AppComponent]
