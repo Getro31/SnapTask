@@ -1,0 +1,54 @@
+$firstcolor : #fdc664;
+$secondcolor : #FB8C6F;
+$thirdcolor : #73607d;
+$fourthcolor : #C1b9ae;
+body{
+    background-color: $fourthcolor;
+}
+.content{
+    position: relative;
+    padding: 10px;
+}
+.content .btn-plus{
+    float: right;
+    background: none;
+    border: 0.5px solid darkcyan;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: monospace;
+    color: darkcyan;
+    &:hover{
+        background-color: lighten($color: darkcyan, $amount: 10);
+    }
+}
+.btn-like{
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    &:hover{
+        background-color: $secondcolor;
+    }
+}
+.like{
+    color: darken($color: $secondcolor, $amount: 10);
+}
+.face-snap-card {
+    display: flex;
+    top: 0;
+    background-color: lighten($color: $fourthcolor, $amount: 5);
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: darken($color: $thirdcolor, $amount: 10);
+    margin-left: 10px;
+    margin-bottom: 15px;
+    transform: translate(1px, 1px);
+    transition: transform .5s;
+    &:hover{
+        transform: translate(3px, 3px);
+    }
+}
+    

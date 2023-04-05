@@ -1,0 +1,10 @@
+<div class="face-snap-card">
+    <div class="content">
+        <a routerLink="/task">Back</a>
+        <h2>{{insert.title}}</h2>
+        <p> {{insert.instruction}} </p>
+        <h5>Mise en Ligne le {{insert.uploadAt | date : 'medium'}} </h5>
+        <button (click)="onOpen()"><i class="fa-sharp fa-solid fa-heart" [ngClass]="{ like: insert.open === 1}"></i></button>
+        <span>{{insert.open}}</span>
+    </div>
+</div>

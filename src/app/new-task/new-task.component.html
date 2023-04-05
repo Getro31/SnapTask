@@ -1,0 +1,27 @@
+<div class="form-card">
+    <h2>Nouvel Tâche</h2>
+    <form [formGroup]="taskForm" >   
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input id="title" type="text" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="instruction">Description</label>
+            <textarea id="description" type="text" formControlName="instruction" rows="4">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="uploadAt">UploadAt</label>
+            <input id="uploadAt" type="date" formControlName="uploadAt">
+        </div>
+        <div class="action-buttons">
+            <button type="submit" (click)="onSubmit()" [disabled]="taskForm.invalid">Enregistrer</button>
+        </div>
+    </form>
+</div>
+<div class="task-preview" *ngIf="taskPreview$ | async as task">
+    <h2>{{ task.title | uppercase }}</h2>
+    <p>Mis en ligne {{ task.uploadAt | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <p>{{ task.instruction }}</p>
+    <p> {{task.open}} </p>
+</div>

@@ -1,0 +1,32 @@
+body {
+  background-color: #C1b9ae;
+}
+
+.content {
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+
+.ajouter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ajouter button {
+  margin: 5px 0;
+  background-color: #fdc664;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #FB8C6F;
+}
+
+.face-snap-card {
+  display: flex;
+  background-color: #73607d;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}/*# sourceMappingURL=to-do-list.component.css.map */

@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="collapse" id="navbarContenair">
+        <ul class="navbar-link">
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" routerLink="task" routerLinkActive="active">Task</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn-link" href="" (click)="onAddNewTask()">+</button>
+            </li>
+        </ul>
+        <form class="formbox">
+            <input class="form-input" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn-input" type="submit">Search</button>
+        </form>
+    </div>
+</nav>

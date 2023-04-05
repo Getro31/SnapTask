@@ -1,0 +1,38 @@
+$firstcolor : #fdc664;
+$secondcolor : #FB8C6F;
+$thirdcolor : #73607d;
+$fourthcolor : #C1b9ae;
+body{
+    background-color: $fourthcolor;
+}
+.content{
+    padding: 10px;
+}
+.content button{
+    margin-right: 5px;
+}
+button{
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    &:hover{
+        background-color: $secondcolor;
+    }
+}
+.like{
+    color: darken($color: $secondcolor, $amount: 10);
+}
+.face-snap-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lighten($color: $fourthcolor, $amount: 5);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: darken($color: $thirdcolor, $amount: 10);
+    width: max-content;
+    margin: auto;
+    padding: 0 100px;
+}
+    
