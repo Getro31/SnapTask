@@ -8,11 +8,16 @@ body{
 .content{
     position: relative;
     padding: 10px;
+    .date{
+        margin-top: 25px;
+        font-size: 0.8rem;
+        font-family: monospace;
+    }
 }
 .content .btn-plus{
-    float: right;
     background: none;
     border: 0.5px solid darkcyan;
+    margin: 20px 0px 0px 110px;
     border-radius: 5px;
     padding: 5px;
     font-size: 15px;
@@ -37,14 +42,12 @@ body{
     color: darken($color: $secondcolor, $amount: 10);
 }
 .face-snap-card {
-    display: flex;
-    top: 0;
     background-color: lighten($color: $fourthcolor, $amount: 5);
-    width: 60%;
+    width: 400px;
+    height: 220px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: darken($color: $thirdcolor, $amount: 10);
-    margin-left: 10px;
-    margin-bottom: 15px;
+    margin: 20px;
     transform: translate(1px, 1px);
     transition: transform .5s;
     &:hover{

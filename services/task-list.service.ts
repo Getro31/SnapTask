@@ -28,6 +28,7 @@ export class TaskListService {
       })),
       switchMap(updateSnapTask =>  this.httpClient.put<TaskModel>(`http://localhost:3000/facesnaps/${taskId}`,updateSnapTask))
   )}
+  //method pour ajouter des snaps dans le serveur 
   addSnapTask(formValue: {title: string, description: string, imageUrl: string, location?: string}): Observable<TaskModel>{
     return this.getAllTasks().pipe(
       map(task => [...task].sort((a: TaskModel, b: TaskModel) => a.id - b.id )),

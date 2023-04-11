@@ -46,7 +46,7 @@ export class NewTaskComponent implements OnInit{
   }
   onSubmit() {
     this._taskService.addSnapTask(this.taskForm.value).pipe(
-      tap(() => this.router.navigateByUrl('/facesnaps'))
+      tap(() => this.router.navigateByUrl('/task'))
     ).subscribe();
   }
 

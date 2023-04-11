@@ -29,10 +29,10 @@ export class TaskListComponent implements OnInit, OnDestroy {
       takeUntil(this.destroy$),
       tap(value => console.log(value))
     ).subscribe();
- }
- ngOnDestroy(){
+  }
+  ngOnDestroy(){
   this.destroy$.next(true);
    
- }
+  }
 
 }

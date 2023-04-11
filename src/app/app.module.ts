@@ -13,6 +13,7 @@ import { SingleTaskComponent } from './single-task/single-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorProviders } from './interceptor'
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ {provide: LOCALE_ID, useValue: 'fr-FR'} ],
+  providers: [ {provide: LOCALE_ID, useValue: 'fr-FR'} ,
+    HttpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
