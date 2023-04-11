@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskListComponent } from './task-list/task-list.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SingleTaskComponent } from './single-task/single-task.component';
-import { NewTaskComponent } from './new-task/new-task.component';
+import { TaskListComponent } from './face-snaps/components/task-list/task-list.component';
+import { LandingPageComponent } from './landing-page/components/landing-page/landing-page.component';
+import { SingleTaskComponent } from './face-snaps/components/single-task/single-task.component';
+import { NewTaskComponent } from './face-snaps/components/new-task/new-task.component';
 
 //Initialization d'un tableau de type Routes contenant les chemins de nos components
 const routes: Routes = [

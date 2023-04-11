@@ -1,0 +1,57 @@
+body {
+  background-color: #C1b9ae;
+}
+
+.content {
+  position: relative;
+  padding: 10px;
+}
+.content .date {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.content .btn-plus {
+  background: none;
+  border: 0.5px solid darkcyan;
+  margin: 20px 0px 0px 110px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 15px;
+  font-family: monospace;
+  color: darkcyan;
+}
+.content .btn-plus:hover {
+  background-color: #00bebe;
+}
+
+.btn-like {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.btn-like:hover {
+  background-color: #FB8C6F;
+}
+
+.like {
+  color: #fa643d;
+}
+
+.face-snap-card {
+  background-color: #ccc5bc;
+  width: 400px;
+  height: 220px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #584a60;
+  margin: 20px;
+  transform: translate(1px, 1px);
+  transition: transform 0.5s;
+}
+.face-snap-card:hover {
+  transform: translate(3px, 3px);
+}/*# sourceMappingURL=to-do-list.component.css.map */

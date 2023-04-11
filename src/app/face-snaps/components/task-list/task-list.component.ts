@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit} from '@angular/core';
-import { TaskModel } from '../model/to-do-list.model';
-import { TaskListService } from 'services/task-list.service';
+import { TaskModel } from '../../../core/model/to-do-list.model';
+import { TaskListService } from 'src/app/core/services/task-list.service';
 import { Observable, Subject, interval, takeUntil, tap } from 'rxjs';
 
 @Component({
@@ -24,7 +24,6 @@ export class TaskListComponent implements OnInit, OnDestroy {
     //acces au donné du service task list par l'argument _taskService de type TaskListService
     //this.myTask = this._taskService.getAllTasks(); 
     this.myTask$ = this._taskService.getAllTasks()
-
     interval(1000).pipe(
       takeUntil(this.destroy$),
       tap(value => console.log(value))
@@ -32,7 +31,6 @@ export class TaskListComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(){
   this.destroy$.next(true);
-   
   }
 
 }

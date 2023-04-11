@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, switchMap } from 'rxjs';
-import { TaskModel } from 'src/app/model/to-do-list.model';
+import { TaskModel } from 'src/app/core/model/to-do-list.model';
 
 @Injectable({
   providedIn: 'root'
